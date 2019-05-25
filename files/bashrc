@@ -1,4 +1,3 @@
-
 # need HOST variable
 test -z "${HOST}" && HOST=`hostname` # && echo "set HOST=${HOST}"
 
@@ -12,17 +11,8 @@ test -z "${HOST}" && HOST=`hostname` # && echo "set HOST=${HOST}"
 
 # GPG Agent
 export GPG_TTY=$(tty)
-eval $(gpg-agent --homedir /root/.gnupg --use-standard-socket --daemon &> /dev/null)
-
-# bash completion
-[ -r "/usr/local/etc/bash_completion" ] && source "/usr/local/etc/bash_completion"
-[ -r "/usr/share/bash-completion/bash_completion" ] && source "/usr/share/bash-completion/bash_completion"
-
-# dircolors
-which dircolors &>/dev/null && [[ -f "$HOME/.dircolors" ]] && eval $(dircolors $HOME/.dircolors)
-
-# editor
-export EDITOR="vim"
+#eval $(gpg-agent --homedir /root/.gnupg --use-standard-socket --daemon &> /dev/null)
+eval $(gpg-agent --homedir /root/.gnupg --daemon --allow-preset-passphrase &> /dev/null)
 
 # display
 [ -z "$DISPLAY" ] && DISPLAY=":0.0"
