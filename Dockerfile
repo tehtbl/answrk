@@ -9,7 +9,7 @@ ARG ANSIBLE_VERSION="2.7.10"
 # Install dependencies
 RUN set -euxo pipefail \
  && sed -i 's/http\:\/\/dl-cdn.alpinelinux.org/https\:\/\/alpine.global.ssl.fastly.net/g' /etc/apk/repositories \
- && apk add --no-cache --update python3 ca-certificates openssh-client sshpass dumb-init su-exec zip bash \
+ && apk add --no-cache --update python3 ca-certificates openssh-client sshpass dumb-init su-exec zip bash gnupg \
  && apk add --no-cache --update --virtual .build-deps python3-dev build-base libffi-dev openssl-dev \
  && pip3 install --no-cache --upgrade pip \
  && pip3 install --no-cache --upgrade setuptools ansible==${ANSIBLE_VERSION} \
@@ -21,9 +21,11 @@ RUN set -euxo pipefail \
 
 # Initialize
 RUN mkdir -p /etc/ansible \
- && mkdir -p /playbooks \
- && echo "alias ll='ls -la'" >> /root/.bashrc
+ && mkdir -p /playbooks
 
+COPY files/bashrc /root/.bashrc
+
+# set working dir
 WORKDIR /playbooks
 
 # RUN
