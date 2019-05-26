@@ -24,6 +24,7 @@ RUN mkdir -p /etc/ansible \
  && mkdir -p /playbooks
 
 COPY files/bashrc /root/.bashrc
+COPY files/ansible-vault-wrapper.sh /bin/ansible-vault-wrapper.sh
 
 # set working dir
 WORKDIR /playbooks

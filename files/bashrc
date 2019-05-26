@@ -14,9 +14,6 @@ export GPG_TTY=$(tty)
 #eval $(gpg-agent --homedir /root/.gnupg --use-standard-socket --daemon &> /dev/null)
 eval $(gpg-agent --homedir /root/.gnupg --daemon --allow-preset-passphrase &> /dev/null)
 
-# display
-[ -z "$DISPLAY" ] && DISPLAY=":0.0"
-
 # lang settings
 export LC_ALL="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
