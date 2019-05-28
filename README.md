@@ -1,16 +1,17 @@
 # answrk
-files to build ansible worker docker image
 
-# Build && Run
-```
-docker build -t ansibleworker:latest --build-arg SSH_PRV_KEY="$(cat ~/.ssh/id_rsa)" --build-arg SSH_PUB_KEY="$(cat ~/.ssh/id_rsa.pub)" .
-```
+Files to build a docker image to work with Ansible
+
+# Local Build && Run
 
 ```
-docker run -ti --rm -v $(pwd)/ansible:/etc/ansible -v $(pwd)/playbooks:/playbooks --network=host ansibleworker:latest
+docker build -t tehtbl/answrk:latest .
 ```
 
-# etc
 ```
-ansible-galaxy install --roles-path /etc/ansible/roles -r /etc/ansible/requirements.yml
+docker run -ti --rm --network=host \
+  -v $(pwd)/ansible:/etc/ansible \
+  -v $(pwd)/playbooks:/playbooks \
+  -v ${HOME}/.ssh:/root/.ssh:ro \
+  tehtbl/answrk:latest
 ```

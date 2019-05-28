@@ -1,9 +1,0 @@
-
-Host *
-  ForwardAgent yes
-  StrictHostKeyChecking no
-  ServerAliveInterval 120
-  ControlMaster auto
-  ControlPersist 60s
-  ControlPath /tmp/ssh-controlpath-%h-%p-%r
-  IdentityFile ~/.ssh/id_rsa
