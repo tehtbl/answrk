@@ -13,7 +13,7 @@ RUN set -euxo pipefail \
  && apk add --no-cache --update --virtual .build-deps python3-dev build-base libffi-dev openssl-dev \
  && pip3 install --no-cache --upgrade pip \
  && pip3 install --no-cache --upgrade setuptools ansible==${ANSIBLE_VERSION} \
- && pip3 install --no-cache --upgrade proxmoxer requests \
+ && pip3 install --no-cache --upgrade proxmoxer requests ansible-lint \
  && apk del --no-cache --purge .build-deps \
  && rm -rf /var/cache/apk/* \
  && rm -rf /root/.cache \
