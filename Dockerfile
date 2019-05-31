@@ -4,7 +4,7 @@ FROM alpine:${ALPINE_VERSION}
 
 LABEL maintainer="@tehtbl"
 
-ARG ANSIBLE_VERSION="2.7.10"
+ARG ANSIBLE_VERSION="2.8.0"
 
 # Install dependencies
 RUN set -euxo pipefail \
