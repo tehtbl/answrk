@@ -31,10 +31,10 @@ export LANGUAGE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 # prompt
-RETVAL="${DARK_WHITE}[\$?]"
-USER_HOST="${DARK_RED}\u"
-FULLPATH="${DARK_BLUE}\w"
-PS1="${DARK_YELLOW}docker:${USER_HOST} ${FULLPATH}${CLEAR} \$ "
+RETVAL="\[${DARK_WHITE}\][\$?]"
+USER_HOST="\[${DARK_RED}\]\u"
+FULLPATH="\[${DARK_BLUE}\]\w"
+PS1="\[${DARK_YELLOW}\]docker:${USER_HOST} ${FULLPATH}\[${CLEAR}\] \$ "
 PS2="\[\a\]"$PS2
 
 # aliases
